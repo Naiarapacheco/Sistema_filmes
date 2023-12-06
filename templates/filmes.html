@@ -1,0 +1,45 @@
+{%extends "menu.html"%}
+{%block conteudo%}
+
+<link rel="stylesheet" href="../static/lista.filmes.css">
+
+<h4>Lista de Filmes</h4>
+<a href="{{url_for('cadastro_filmes')}}" class="btn btn-dark">Adicionar Filme</a>
+<hr>
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">CH</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for filme in filmes.items %}
+        <tr>
+            <td>{{filme.id}}</td>
+            <td>{{filme.nome}}</td>
+            <td>{{filme.descricao}}</td>
+            <td>{{filme.ch}}</td>
+            <td>
+                <a href="{{filme.id}}/atualiza_filmes" class="btn btn-secondary btn-xs">Editar</a>
+                <a href="{{filme.id}}/remove_filmes" class="btn btn-danger btn-xs" 
+                onclick="return confirm('Deseja realmente excluir?')">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% if filmes.has_prev %}
+    <a href="{{url_for('lista_filmes', page=filmes.prev_num)}}">Filmes anteriores</a>
+{% else %}
+    >>
+{% endif %}
+{% if filmes.has_next %}
+    <a href="{{url_for('lista_filmes', page=filmes.next_num)}}">Próximos filmes</a>
+{% else %}
+    <<
+{% endif %}
+{%endblock%}

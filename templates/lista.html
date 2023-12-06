@@ -1,0 +1,22 @@
+{%extends "menu.html"%}
+{%block conteudo%}
+<link rel="stylesheet" href="../static/lista.css">
+
+<h4> Filmes Populares </h4>
+<hr>
+<div class="row">
+    {%for filme in filmes%}
+    <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <img src="http://image.tmdb.org/t/p/w500{{filme.backdrop_path}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{filme.title}}</h5>
+                <p class="card-text">{{filme.overview}}</p>
+                <hr>
+                <h3>Nota Média <span class="badge bg-success">{{filme.vote_average}}</span></h3>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}

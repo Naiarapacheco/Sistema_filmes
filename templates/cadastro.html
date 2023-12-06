@@ -1,0 +1,31 @@
+{%extends "menu.html"%}
+{%block conteudo%}
+<link rel="stylesheet" href="../static/cadastro.css">
+
+<h4>Avaliar Filmes</h4>
+<hr>
+
+<div class="container-sm">
+{%for avaliacao in avaliacoes%}
+<p>
+  <a class="btn btn-light" data-bs-toggle="collapse" href="#collapseExample_{{avaliacao.nome}}" 
+  role="button" aria-expanded="false" aria-controls="collapseExample_{{avaliacao.nome}}">
+    {{avaliacao.nome}}
+  </a>
+</p>
+<div class="collapse" id="collapseExample_{{avaliacao.nome}}">
+  <div class="card card-body">
+    {{avaliacao.nota}}
+</div>
+</div>
+{%endfor%}
+<form action="{{url_for('cadastro')}}" method="POST">
+    <label>Nome:</label>
+    <input class="form-control" type="text" name="nome">
+    <label>Nota:</label>
+    <input class="form-control" type="text" name="nota">
+    <button class="btn btn-success">Avaliar</button>
+</form>
+</div>
+
+{%endblock%}

@@ -1,0 +1,20 @@
+{%extends "menu.html"%}
+{%block conteudo%}
+
+<link rel="stylesheet" href="../static/lista.cad_filmes.css">
+
+<h4>Atualizar Filmes</h4>
+<hr>
+<!-- <a href="{{url_for('lista_filmes')}}" class="btn btn-dark">Voltar</a> -->
+ 
+<form action="{{url_for('atualiza_filmes', id=filme.id)}}" method="POST" class="form-control">
+    <label>Nome:</label>
+    <input class="form-control" type="text" name="nome" value="{{filme.nome}}" required>
+    <label>Descrição:</label>
+    <textarea class="form-control" type="text" name="descricao" required>{{filme.descricao}}</textarea>
+    <label>CH:</label>
+    <input class="form-control" type="text" name="ch" value="{{filme.ch}}" required>
+    <button class="btn btn-success">Atualizar</button>
+</form> 
+
+{%endblock%}

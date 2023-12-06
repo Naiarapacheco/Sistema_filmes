@@ -1,0 +1,25 @@
+{%extends "menu.html"%}
+{%block conteudo%}
+
+<link rel="stylesheet" href="../static/lista.cad_filmes.css">
+
+<h4>Cadastro de Filmes</h4>
+<hr>
+<!-- <a href="{{url_for('lista_filmes')}}" class="btn btn-dark">Voltar</a> -->
+
+{%- for mensagem in get_flashed_messages() %}
+    <div class="alert alert-danger">
+        {{mensagem}}
+    </div>
+{%- endfor %}
+
+<form action="{{url_for('cadastro_filmes')}}" method="POST" class="form-control">
+    <label>Nome:</label>
+    <input class="form-control" type="text" name="nome" placeholder="Nome do Filme" autocomplete="off">
+    <label>Descrição:</label>
+    <textarea class="form-control" type="text" name="descricao" placeholder="Descrição do Filme..." autocomplete="off"></textarea>
+    <label>CH:</label>
+    <input class="form-control" type="text" name="ch" placeholder="Horas do Filme" autocomplete="off">
+    <button class="btn btn-success">Adicionar</button>
+</form>
+{%endblock%}

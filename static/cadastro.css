@@ -1,0 +1,16 @@
+h4{
+    text-align: center;
+    margin-top: 1rem;
+    color: #383838;
+}
+
+.btn-success {
+    margin-top: 1.5rem;
+    font-weight: bold;
+}
+
+.avaliar:hover {
+    background: #f1a532;
+    color: white;
+    font-weight: bold;
+}

@@ -1,0 +1,16 @@
+h4 {
+    margin-top: 1rem;
+    text-align: center;
+    color: #383838;
+}
+
+.form-control {
+    margin-top: 0.5rem;
+}
+
+.btn-dark{
+    margin-top: 1rem;
+}
+.btn-success{
+    margin-top: 0.5rem;
+}
