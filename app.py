@@ -92,5 +92,6 @@ def remove_filmes(id):
     db.session.delete(filme)
     db.session.commit()
     return redirect(url_for('lista_filmes'))
-if __name__ == ("__init__"):
+    
+if __name__ == "__main__":
     app(debug=True)
